@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# React Simple Table
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+The package can be installed via NPM:
 
-In the project directory, you can run:
+```
+npm i reactjs-simple-table
+```
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Import SimpleTableComponent for usage :
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```js
+import SimpleTableComponent from "reactjs-simple-table";
+```
 
-### `npm test`
+Define your column with filed variable and header name :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```js
+const columns = [
+  {
+    field: "title",
+    headerName: "Title",
+  },
+  {
+    field: "number",
+    headerName: "Amount",
+  },
+];
+```
 
-### `npm run build`
+Get your list from Api or define your list :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+const list = [
+  { title: "Michael", number: 1 },
+  { title: "Lindsay", number: 10 },
+  { title: "Tobias", number: 6 },
+  { title: "Byron", number: 3 },
+  { title: "George", number: 1 },
+  { title: "Rachel", number: 10 },
+  { title: "Lawson", number: 6 },
+  { title: "Ferguson", number: 3 },
+  { title: "Funke", number: 1 },
+];
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The most basic use of the simple table can be described with:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+<SimpleTableComponent columns={columns} list={list} />
+```
 
-### `npm run eject`
+```js
+import SimpleTableComponent from "reactjs-simple-table";
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const columns = [
+  {
+    field: "title",
+    headerName: "Title",
+  },
+  {
+    field: "number",
+    headerName: "Amount",
+  },
+];
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+function App() {
+  const list = [
+    { title: "Michael", number: 1 },
+    { title: "Lindsay", number: 10 },
+    { title: "Tobias", number: 6 },
+    { title: "Byron", number: 3 },
+    { title: "George", number: 1 },
+    { title: "Rachel", number: 10 },
+    { title: "Lawson", number: 6 },
+    { title: "Ferguson", number: 3 },
+    { title: "Funke", number: 1 },
+  ];
+  return (
+    <div className="App">
+      <SimpleTableComponent columns={columns} list={list} />
+    </div>
+  );
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+export default App;
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## User guide
 
-## Learn More
+| Prop name        | Description                                                                                                                                                  | Default value | Example values         |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ---------------------- |
+| total            | Total of list                                                                                                                                                | list.length() | 100                    |
+| numberPerPage    | number of row in each page                                                                                                                                   | 10            | 5 , 10 , 20 , 50 , 100 |
+| isRtl            | for support rtl language                                                                                                                                     | false         | true or false          |
+| numberPageOfText | for change 'of' text in pagation                                                                                                                             | 'of'          | 'from' or 'از'         |
+| tableClassName   | you can use your own class for table style , in this case you can add boostrap or other css file in your app and use table class name and change table style | 'myTable'     | 'table table-bordered' |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Using Bootsrap
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For using boostrap table class you can add boostrap css to Index.js or App.js , then add _tableClassName_ property in SimpleTableComponent and use your table class :
 
-### Code Splitting
+```
+npm i bootstrap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+```js
+import SimpleTableComponent from "reactjs-simple-table";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const columns = [
+  {
+    field: "title",
+    headerName: "Title",
+  },
+  {
+    field: "number",
+    headerName: "Amount",
+  },
+];
 
-### Making a Progressive Web App
+function App() {
+  const list = [
+    { title: "Michael", number: 1 },
+    { title: "Lindsay", number: 10 },
+    { title: "Tobias", number: 6 },
+    { title: "Byron", number: 3 },
+    { title: "George", number: 1 },
+    { title: "Rachel", number: 10 },
+    { title: "Lawson", number: 6 },
+    { title: "Ferguson", number: 3 },
+    { title: "Funke", number: 1 },
+  ];
+  return (
+    <div className="App">
+      <SimpleTableComponent
+        columns={columns}
+        list={list}
+        tableClassName={"table table-bordered"}
+      />
+    </div>
+  );
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default App;
+```
 
-### Advanced Configuration
+You can use _table-responsive_ :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+<div class="table-responsive">
+  <SimpleTableComponent
+    columns={columns}
+    list={list}
+    tableClassName={"table table-bordered"}
+  >
+    ...
+  </SimpleTableComponent>
+</div>
+```
