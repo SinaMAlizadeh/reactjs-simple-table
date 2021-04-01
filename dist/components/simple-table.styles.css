@@ -1,0 +1,85 @@
+.mytable, .mytable td, .mytable th {
+    border: 1px solid black;
+}
+
+.mytable td, .mytable th {
+    padding: 10px;
+}
+
+.mytable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mytable th {
+    cursor: pointer;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl th {
+    text-align: center;
+}
+
+.ltr th {
+    text-align: center;
+}
+
+.ltr .down-caret {
+    margin-right: 5px;
+}
+
+.ltr .up-caret {
+    margin-right: 5px;
+}
+
+.rtl .down-caret {
+    margin-left: 5px;
+}
+
+.rtl .up-caret {
+    margin-left: 5px;
+}
+
+.down-caret {
+    width: 8px!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.up-caret {
+    width: 8px!important;
+}
+
+.chevron {
+    font-size: 1.7em;
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.footer-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.number-of-page-text {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.number-of-page-text span {
+    padding: 5px;
+}
