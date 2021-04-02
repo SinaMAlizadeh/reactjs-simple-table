@@ -12,17 +12,20 @@ const HeaderTableComponent = ({ columns, orderby, order, sort }) => {
           >
             {orderby === item.field ? (
               order === "descending" ? (
-                <img
-                  src={Caret}
-                  className="down-caret"
-                  alt="up-reactjs-simple-table-caret"
-                />
+                <i className="down-caret">&#9660;</i>
               ) : (
-                <img
-                  src={Caret}
-                  className="up-caret"
-                  alt="down-reactjs-simple-table-caret"
-                />
+                // <img
+                //   src={Caret}
+                //   className="down-caret"
+                //   alt="up-reactjs-simple-table-caret"
+                // />
+                <i className="up-caret"> &#9650;</i>
+
+                // <img
+                //   src={Caret}
+                //   className="up-caret"
+                //   alt="down-reactjs-simple-table-caret"
+                // />
               )
             ) : (
               ""

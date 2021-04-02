@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const BodyTableComponent = ({
   data,
   columnsData
 }) => {
+  useEffect(() => {
+    debugger;
+    const x = data;
+  }, []);
   return /*#__PURE__*/React.createElement("tbody", null, data?.map((item, i) => /*#__PURE__*/React.createElement("tr", {
     key: i
   }, columnsData?.map((col, j) => {

@@ -25,10 +25,13 @@ const SimpleTableComponent = ({
     setColumnsData(columns);
   }, [columns]);
   useEffect(() => {
+    debugger;
+    const x = list?.length;
     setTotalTable(total ? total : list?.length);
-    setNumberPerPage(numberPerPageTable);
+    setNumberPerPage(numberPerPageTable ? numberPerPageTable : 10);
   }, [list, numberPerPageTable, total]);
   useEffect(() => {
+    debugger;
     setNumberOfPage(Math.ceil(totalTable / numberPerPage));
     setData(list?.slice((page - 1) * numberPerPage, page * numberPerPage));
   }, [totalTable, numberPerPage, page, list]);

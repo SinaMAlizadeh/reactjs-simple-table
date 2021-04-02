@@ -49,16 +49,11 @@
 }
 
 .down-caret {
-    width: 8px!important;
-    transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
+    font-size: 0.7em;
 }
 
 .up-caret {
-    width: 8px!important;
+    font-size: 0.7em;
 }
 
 .chevron {

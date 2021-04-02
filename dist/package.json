@@ -1,13 +1,13 @@
 {
   "name": "reactjs-simple-table",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "description": "Reactjs simple table for showing list of data with sorting and pagation",
   "private": false,
   "babel": {
     "presets": [
       "@babel/preset-react"
     ]
-  },
+  },  
   "repository": {
     "type": "git",
     "url": "https://github.com/SinaMAlizadeh/reactjs-simple-table"

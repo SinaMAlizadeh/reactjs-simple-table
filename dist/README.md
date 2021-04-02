@@ -1,5 +1,7 @@
 # React Simple Table
 
+A simple and reusable table for React ([Demo](Https://Codesandbox.Io/S/Reactjs-Simple-Table-Pokzv "Demo"))
+
 ## Installation
 
 The package can be installed via NPM:
