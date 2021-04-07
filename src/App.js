@@ -1,155 +1,54 @@
 import React, { useEffect, useState } from "react";
 import SimpleTableComponent from "./components/simple-table";
-
+import ServerSimpleTableComponent from "./components/server-simple-table";
 const columns = [
   {
-    field: "title",
-    headerName: "Title",
+    field: "id",
+    headerName: "id",
   },
   {
-    field: "number",
-    headerName: "Amount",
+    field: "name",
+    headerName: "name",
+  },
+  {
+    field: "username",
+    headerName: "username",
+  },
+  {
+    field: "email",
+    headerName: "email",
   },
 ];
 
 function App() {
-  const list = [
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "1سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "2سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "3سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "4سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "5سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "6سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "7سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "8سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "9سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-    { title: "سینا", number: 1 },
-    { title: "علی", number: 10 },
-    { title: "آفرین", number: 6 },
-    { title: "بابک", number: 3 },
-  ];
+  const [list, setList] = useState([]);
+
+  // useEffect(() => {
+  //   fetch(`https://jsonplaceholder.typicode.com/users`)
+  //     .then((response) => response.json())
+  //     .then((json) => setList(json));
+  // }, []);
+
+  const tableData = (item) => {
+    console.log(item);
+    fetch(
+      `https://jsonplaceholder.typicode.com/users?_start=${
+        item.page * item.numberPerPage
+      }&_limit=${item.numberPerPage}`
+    )
+      .then((response) => response.json())
+      .then((json) => setList(json));
+  };
+
   return (
     <div className="App">
-      <SimpleTableComponent columns={columns} list={list} />
+      {/* <SimpleTableComponent columns={columns} list={list} /> */}
+      <ServerSimpleTableComponent
+        columns={columns}
+        list={list}
+        onGetData={tableData}
+        total={1000}
+      />
     </div>
   );
 }

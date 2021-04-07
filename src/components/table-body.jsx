@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 const BodyTableComponent = ({ data, columnsData }) => {
   useEffect(() => {
     debugger;
-    const x = data;
   }, []);
   return (
     <tbody>

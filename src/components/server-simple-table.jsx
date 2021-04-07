@@ -4,7 +4,7 @@ import BodyTableComponent from "./table-body";
 import FooterTableComponent from "./table-footer";
 import HeaderTableComponent from "./table-header";
 
-const SimpleTableComponent = ({
+const ServerSimpleTableComponent = ({
   columns,
   list,
   total,
@@ -12,6 +12,7 @@ const SimpleTableComponent = ({
   isRtl = false,
   numberPageOfText,
   tableClassName,
+  onGetData,
 }) => {
   const [data, setData] = useState([]);
   const [columnsData, setColumnsData] = useState([]);
@@ -23,18 +24,36 @@ const SimpleTableComponent = ({
   const [numberOfPage, setNumberOfPage] = useState(0);
 
   useEffect(() => {
+    debugger;
     setColumnsData(columns);
-  }, [columns]);
+    setTotalTable(total);
+  }, []);
 
   useEffect(() => {
-    setTotalTable(total ? total : list?.length);
+    debugger;
     setNumberPerPage(numberPerPageTable ? numberPerPageTable : 10);
-  }, [list, numberPerPageTable, total]);
+    setNumberOfPage(Math.ceil(totalTable / numberPerPage));
+  }, [totalTable]);
 
   useEffect(() => {
+    debugger;
+    setNumberPerPage(numberPerPage ? numberPerPage : 10);
     setNumberOfPage(Math.ceil(totalTable / numberPerPage));
-    setData(list?.slice((page - 1) * numberPerPage, page * numberPerPage));
-  }, [totalTable, numberPerPage, page, list]);
+  }, [numberPerPage]);
+
+  useEffect(() => {
+    setData(list);
+  }, [list]);
+
+  useEffect(() => {
+    onGetData({
+      page: page - 1,
+      numberPerPage: numberPerPage,
+      order: order == "descending" ? "ascending" : "descending",
+      orderby: orderby,
+      data: data,
+    });
+  }, [page, numberPerPage]);
 
   const sort = (item) => {
     setOrderBy(item);
@@ -56,7 +75,6 @@ const SimpleTableComponent = ({
           .slice((page - 1) * numberPerPage, page * numberPerPage)
       );
     }
-
     setOrder(orderTemp);
   };
 
@@ -73,9 +91,7 @@ const SimpleTableComponent = ({
   };
 
   const handleChange = (e) => {
-    debugger;
-    let x = e.target.value;
-    setNumberPerPage(x);
+    setNumberPerPage(e.target.value);
     setPage(1);
   };
 
@@ -106,4 +122,4 @@ const SimpleTableComponent = ({
   );
 };
 
-export default SimpleTableComponent;
+export default ServerSimpleTableComponent;

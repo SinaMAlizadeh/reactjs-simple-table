@@ -7,7 +7,7 @@
     "presets": [
       "@babel/preset-react"
     ]
-  },  
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/SinaMAlizadeh/reactjs-simple-table"
@@ -23,7 +23,7 @@
     "react component",
     "react-component"
   ],
-   "author": "sina mohammad alizadeh (sina_mas)",
+  "author": "sina mohammad alizadeh (sina_mas)",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
